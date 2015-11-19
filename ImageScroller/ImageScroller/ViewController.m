@@ -20,7 +20,7 @@
     
     CGFloat x = 0;
     
-    NSInteger imageCount = 5;
+    int imageCount = 5;
     
     CGFloat y = self.imageScrollView.bounds.origin.y;
     CGFloat width = self.imageScrollView.bounds.size.width;
@@ -35,13 +35,35 @@
     //添加UIImageView
     for (int i = 0; i < imageCount; i++) {
         UIImageView *imageView = [[UIImageView alloc] init];
-        x += i * self.imageScrollView.bounds.size.width;
+//        imageView.frame = self.imageScrollView.bounds;
+//
+//        x += i * self.imageScrollView.bounds.size.width;
+//        
+//        CGRect frame = CGRectMake(x, y, width, height);
+//        
+//        
+//        
+////        imageView.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
+//        
+//        NSString *imageName = [NSString stringWithFormat:@"img_%02d",i+1];
+//        
+//        UIImage *image = [UIImage imageNamed:imageName];
+//        
+//        imageView.image = image;
+//        imageView.frame = frame;
         
-        CGRect frame = CGRectMake(x, y, width, height);
+        imageView.frame = self.imageScrollView.bounds;
+        //        img_01
+        NSString *imageName = [NSString stringWithFormat:@"img_%02d", i + 1];
+        
+        UIImage *image = [UIImage imageNamed:imageName];
+        
+        imageView.image = image;
+        
+        x = i * imageView.frame.size.width;
+        CGRect frame = CGRectMake(x, 0, self.imageScrollView.frame.size.width, self.imageScrollView.frame.size.height );
         
         imageView.frame = frame;
-        
-        imageView.backgroundColor = [UIColor colorWithRed:((float)arc4random_uniform(256) / 255.0) green:((float)arc4random_uniform(256) / 255.0) blue:((float)arc4random_uniform(256) / 255.0) alpha:1.0];
         
         [self.imageScrollView addSubview:imageView];
         
