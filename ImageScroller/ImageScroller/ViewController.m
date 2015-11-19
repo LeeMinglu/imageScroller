@@ -95,7 +95,7 @@
     CGFloat offSetX = page * self.imageScrollView.bounds.size.width;
     
     //设置scrollView的offSet
-    self.imageScrollView.contentOffset = CGPointMake(offSetX, 0);
+    [self.imageScrollView setContentOffset:CGPointMake(offSetX, 0) animated:YES];
     
 }
 
