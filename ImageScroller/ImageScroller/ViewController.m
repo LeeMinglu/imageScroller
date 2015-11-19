@@ -12,8 +12,6 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
-
-
 @end
 
 @implementation ViewController
@@ -73,7 +71,31 @@
         
     }
     
+    //添加定时器
+    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
+    
 }
+
+
+- (void)nextImage {
+    
+    //获取当前的页数
+    NSInteger page = self.pageControl.currentPage;
+    
+    //判断是否是最后一页
+    if (page == self.pageControl.numberOfPages - 1) {
+        page = 0;
+    }
+    page ++;
+    
+    //根据页数计算当前的offSet
+    CGFloat offSetX = page * self.imageScrollView.bounds.size.width;
+    
+    //设置scrollView的offSet
+    self.imageScrollView.contentOffset = CGPointMake(offSetX, 0);
+    
+}
+
 
 #pragma mark - 实现scrollView的代理方法
 

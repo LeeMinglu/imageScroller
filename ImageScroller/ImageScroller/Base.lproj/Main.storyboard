@@ -17,9 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jPD-AE-7bp">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jPD-AE-7bp">
                                 <rect key="frame" x="150" y="100" width="300" height="128"/>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Zwm-8V-s8s"/>
+                                    <constraint firstAttribute="height" constant="128" id="eeT-ZA-3Cf"/>
+                                </constraints>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="rTt-Gk-V3r">
                                 <rect key="frame" x="254" y="187" width="92" height="37"/>
@@ -35,7 +39,9 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="jPD-AE-7bp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9pB-cD-R8h"/>
                             <constraint firstItem="rTt-Gk-V3r" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Men-33-WxI"/>
+                            <constraint firstItem="jPD-AE-7bp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="amI-2n-50n"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rTt-Gk-V3r" secondAttribute="bottom" constant="376" id="d98-Qk-SVx"/>
                         </constraints>
                     </view>
