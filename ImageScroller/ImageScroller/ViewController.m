@@ -11,6 +11,7 @@
 @interface ViewController () <UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *imageScrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -72,7 +73,9 @@
     }
     
     //添加定时器
-    [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
+    
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     
 }
 
@@ -110,6 +113,21 @@
     self.pageControl.currentPage = page;
     
     
+}
+
+//当开始拖拽的时候停止计时器
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self.timer invalidate];
+    
+    self.timer = nil;
+}
+
+
+//当停止拖拽的时候打开计时器
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
+
 }
 
 @end
