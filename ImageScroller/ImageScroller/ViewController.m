@@ -88,14 +88,16 @@
     //判断是否是最后一页
     if (page == self.pageControl.numberOfPages - 1) {
         page = 0;
+    }else {
+        page ++;
     }
-    page ++;
+    
     
     //根据页数计算当前的offSet
     CGFloat offSetX = page * self.imageScrollView.bounds.size.width;
     
     //设置scrollView的offSet
-    [self.imageScrollView setContentOffset:CGPointMake(offSetX, 0) animated:YES];
+    self.imageScrollView.contentOffset = CGPointMake(offSetX, 0);
     
 }
 
