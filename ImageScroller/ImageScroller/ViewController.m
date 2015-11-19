@@ -75,8 +75,6 @@
     //添加定时器
     [self openTimer];
     
-    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
-    
 }
 
 
@@ -119,6 +117,7 @@
 
 - (void)openTimer {
     self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)closeTimer {
