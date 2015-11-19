@@ -73,7 +73,7 @@
     }
     
     //添加定时器
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
+    [self openTimer];
     
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
     
@@ -115,19 +115,24 @@
     
 }
 
+- (void)openTimer {
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
+}
+
+- (void)closeTimer {
+    [self.timer invalidate];
+    self.timer = nil;
+}
+
 //当开始拖拽的时候停止计时器
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [self.timer invalidate];
-    
-    self.timer = nil;
+    [self closeTimer];
 }
 
 
 //当停止拖拽的时候打开计时器
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(nextImage) userInfo:nil repeats:YES];
-
+    [self openTimer];
 }
 
 @end
