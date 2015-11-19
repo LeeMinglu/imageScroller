@@ -17,28 +17,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jPD-AE-7bp">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jPD-AE-7bp">
                                 <rect key="frame" x="150" y="100" width="300" height="128"/>
                                 <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="Iab-ey-ix4"/>
-                                    <constraint firstAttribute="height" constant="128" id="uKh-XV-Mp8"/>
-                                </constraints>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="rTt-Gk-V3r">
+                                <rect key="frame" x="254" y="187" width="92" height="37"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="92" id="hjR-HS-kWQ"/>
+                                    <constraint firstAttribute="height" constant="37" id="odY-Xw-gTh"/>
+                                </constraints>
+                                <color key="pageIndicatorTintColor" red="1" green="0.94480902749999995" blue="0.30146668830000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.11880752780000001" green="0.1299449724" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </pageControl>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jPD-AE-7bp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SM4-I4-hcG"/>
-                            <constraint firstItem="jPD-AE-7bp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="gm8-1L-Vee"/>
+                            <constraint firstItem="rTt-Gk-V3r" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Men-33-WxI"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rTt-Gk-V3r" secondAttribute="bottom" constant="376" id="d98-Qk-SVx"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageScrollView" destination="jPD-AE-7bp" id="rLl-ug-92e"/>
+                        <outlet property="pageControl" destination="rTt-Gk-V3r" id="ddZ-33-eVz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="295" y="343"/>
         </scene>
     </scenes>
 </document>
